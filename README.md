@@ -1,7 +1,27 @@
-Common Project Structure
+# Sorting Algorithms in C++
 
-All sorting algorithms use the same main() function and printArray() function. Only the sorting function changes.
+A collection of classic sorting algorithms implemented in C++, sharing a common `main()` and `printArray()` structure. Only the sorting function itself changes between examples.
 
+## Table of Contents
+
+- [Common Project Structure](#common-project-structure)
+- [Bubble Sort](#bubble-sort)
+- [Selection Sort](#selection-sort)
+- [Insertion Sort](#insertion-sort)
+- [Merge Sort](#merge-sort)
+- [Quick Sort](#quick-sort)
+- [Counting Sort](#counting-sort)
+- [Master Learning Pattern](#master-learning-pattern)
+- [Learning Roadmap](#learning-roadmap)
+- [Time Complexity Comparison](#time-complexity-comparison)
+
+---
+
+## Common Project Structure
+
+All sorting algorithms use the same `main()` function and `printArray()` function. Only the sorting function changes.
+
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -45,12 +65,20 @@ int main()
 
     return 0;
 }
-Bubble Sort
-Algorithm
-Compare adjacent elements.
-Swap if they are in the wrong order.
-Repeat until the array is sorted.
-Bubble Sort Logic
+```
+
+---
+
+## Bubble Sort
+
+**Algorithm**
+1. Compare adjacent elements.
+2. Swap if they are in the wrong order.
+3. Repeat until the array is sorted.
+
+**Logic**
+
+```cpp
 void bubbleSort(int arr[], int n)
 {
     for(int i = 0; i < n - 1; i++)
@@ -64,12 +92,20 @@ void bubbleSort(int arr[], int n)
         }
     }
 }
-Selection Sort
-Algorithm
-Find the minimum element.
-Swap it with the current position.
-Repeat for the remaining elements.
-Selection Sort Logic
+```
+
+---
+
+## Selection Sort
+
+**Algorithm**
+1. Find the minimum element.
+2. Swap it with the current position.
+3. Repeat for the remaining elements.
+
+**Logic**
+
+```cpp
 void selectionSort(int arr[], int n)
 {
     for(int i = 0; i < n - 1; i++)
@@ -87,12 +123,20 @@ void selectionSort(int arr[], int n)
         swap(arr[i], arr[minIndex]);
     }
 }
-Insertion Sort
-Algorithm
-Take one element at a time.
-Shift larger elements to the right.
-Insert the current element into its correct position.
-Insertion Sort Logic
+```
+
+---
+
+## Insertion Sort
+
+**Algorithm**
+1. Take one element at a time.
+2. Shift larger elements to the right.
+3. Insert the current element into its correct position.
+
+**Logic**
+
+```cpp
 void insertionSort(int arr[], int n)
 {
     for(int i = 1; i < n; i++)
@@ -109,12 +153,20 @@ void insertionSort(int arr[], int n)
         arr[j + 1] = key;
     }
 }
-Merge Sort
-Algorithm
-Divide the array into two halves.
-Recursively sort each half.
-Merge the sorted halves.
-Merge Sort Logic
+```
+
+---
+
+## Merge Sort
+
+**Algorithm**
+1. Divide the array into two halves.
+2. Recursively sort each half.
+3. Merge the sorted halves.
+
+**Logic**
+
+```cpp
 void merge(int arr[], int left, int mid, int right)
 {
     int n1 = mid - left + 1;
@@ -168,12 +220,20 @@ void mergeSort(int arr[], int left, int right)
         merge(arr, left, mid, right);
     }
 }
-Quick Sort
-Algorithm
-Select a pivot element.
-Partition the array.
-Recursively sort the left and right partitions.
-Quick Sort Logic
+```
+
+---
+
+## Quick Sort
+
+**Algorithm**
+1. Select a pivot element.
+2. Partition the array.
+3. Recursively sort the left and right partitions.
+
+**Logic**
+
+```cpp
 int partition(int arr[], int low, int high)
 {
     int pivot = arr[high];
@@ -206,12 +266,20 @@ void quickSort(int arr[], int low, int high)
         quickSort(arr, pi + 1, high);
     }
 }
-Counting Sort
-Algorithm
-Find the maximum element.
-Count the frequency of every value.
-Reconstruct the original array using the frequency array.
-Counting Sort Logic
+```
+
+---
+
+## Counting Sort
+
+**Algorithm**
+1. Find the maximum element.
+2. Count the frequency of every value.
+3. Reconstruct the original array using the frequency array.
+
+**Logic**
+
+```cpp
 void countingSort(int arr[], int n)
 {
     int maxValue = arr[0];
@@ -243,18 +311,26 @@ void countingSort(int arr[], int n)
         }
     }
 }
-Master Learning Pattern
+```
+
+---
+
+## Master Learning Pattern
 
 Every sorting algorithm follows one of these patterns:
 
-Algorithm	Core Idea
-Bubble Sort	Compare → Swap
-Selection Sort	Find Minimum → Swap
-Insertion Sort	Shift → Insert
-Merge Sort	Divide → Merge
-Quick Sort	Pivot → Partition
-Counting Sort	Count Frequency → Rebuild
-Learning Roadmap
+| Algorithm | Core Idea |
+|---|---|
+| Bubble Sort | Compare → Swap |
+| Selection Sort | Find Minimum → Swap |
+| Insertion Sort | Shift → Insert |
+| Merge Sort | Divide → Merge |
+| Quick Sort | Pivot → Partition |
+| Counting Sort | Count Frequency → Rebuild |
+
+## Learning Roadmap
+
+```
 Bubble Sort
       ↓
 Selection Sort
@@ -266,11 +342,15 @@ Merge Sort
 Quick Sort
       ↓
 Counting Sort
-Time Complexity Comparison
-Algorithm	Best	Average	Worst	Space	Stable	In-place
-Bubble Sort	O(n)	O(n²)	O(n²)	O(1)	✅	✅
-Selection Sort	O(n²)	O(n²)	O(n²)	O(1)	❌	✅
-Insertion Sort	O(n)	O(n²)	O(n²)	O(1)	✅	✅
-Merge Sort	O(n log n)	O(n log n)	O(n log n)	O(n)	✅	❌
-Quick Sort	O(n log n)	O(n log n)	O(n²)	O(log n) (avg.)	❌	✅
-Counting Sort	O(n + k)	O(n + k)	O(n + k)	O(n + k)	✅*	❌
+```
+
+## Time Complexity Comparison
+
+| Algorithm | Best | Average | Worst | Space | Stable | In-place |
+|---|---|---|---|---|---|---|
+| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) | ✅ | ✅ |
+| Selection Sort | O(n²) | O(n²) | O(n²) | O(1) | ❌ | ✅ |
+| Insertion Sort | O(n) | O(n²) | O(n²) | O(1) | ✅ | ✅ |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) | ✅ | ❌ |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) (avg.) | ❌ | ✅ |
+| Counting Sort | O(n + k) | O(n + k) | O(n + k) | O(n + k) | ✅* | ❌ |
